@@ -40,9 +40,14 @@
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-resteasy-reactive-jsonb</artifactId>
         </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.apache.camel.quarkus</groupId>-->
+<!--            <artifactId>camel-quarkus-freemarker</artifactId>-->
+<!--        </dependency>-->
         <dependency>
-            <groupId>org.apache.camel.quarkus</groupId>
-            <artifactId>camel-quarkus-freemarker</artifactId>
+            <groupId>io.quarkiverse.freemarker</groupId>
+            <artifactId>quarkus-freemarker</artifactId>
+            <version>1.0.0</version>
         </dependency>
         <dependency>
             <groupId>io.quarkus</groupId>

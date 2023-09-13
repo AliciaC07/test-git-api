@@ -4,6 +4,7 @@ import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
+import org.eclipse.microprofile.config.inject.ConfigProperty;
 
 import java.io.IOException;
 import java.net.URI;
@@ -17,12 +18,14 @@ public class ExampleResource {
 
     private final String url =
             "https://api.github.com/repos/AinsaWeb-Dominicana/neo-routemee-loans-dashboard/actions/workflows";
+    @ConfigProperty(name = "git.tok.request")
+    String token;
 
 
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     public String hello() {
-
+        System.out.printf("enter");
         return "Hello from RESTEasy Reactive";
     }
 
@@ -31,9 +34,10 @@ public class ExampleResource {
     @Produces(MediaType.TEXT_PLAIN)
     public String testApi() throws URISyntaxException, IOException, InterruptedException {
 
+        System.out.printf("enter");
         HttpRequest request2 = HttpRequest.newBuilder()
                 .uri(new URI(url))
-                .header("Authorization", "Bearer {token_git}")
+                .header("Authorization", token)
                 .GET()
                 .build();
         HttpResponse<String> response = HttpClient.newHttpClient().send(request2, HttpResponse.BodyHandlers.ofString());
